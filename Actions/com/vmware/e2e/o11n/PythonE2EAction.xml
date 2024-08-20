@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dunes-script-module name="PythonE2EAction" result-type="string" api-version="6.0.0" id="5fbff026-fb91-4634-ac5a-516f4368d824" version="0.0.0" category-name="com.vmware.e2e.o11n">
   <environment><![CDATA[f2d8fa05-9399-4023-ab06-a4749b09a1c3]]></environment>
-  <param n="url" t="string"/>
-  <param n="array_input" t="Array/string"/>
-  <param n="int_input" t="Array/number"/>
+  <param n="url" t="string"><![CDATA[]]></param>
+  <param n="array_input" t="Array/string"><![CDATA[]]></param>
+  <param n="int_input" t="Array/number"><![CDATA[]]></param>
   <script encoded="false"><![CDATA[import requests
 import os
 import time
@@ -30,7 +30,7 @@ def handler(context, inputs):
     timer = os.getenv("SLEEP_TIME")
     print("Sleeping for: ", timer)
     time.sleep(int(timer))
-    print("Run Complete !")
+    print("Run Complete !!")
 
     return outputs
 
