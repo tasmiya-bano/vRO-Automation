@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="NodeJsE2EAction" result-type="string" api-version="6.0.0" id="0ea9514b-ccd5-41db-97e3-f8ecb9876b17" version="0.0.0" category-name="com.vmware.e2e.o11n">
+  <environment><![CDATA[26826b91-2a9c-4168-af9e-90d790ef14d8]]></environment>
+  <param n="hostname" t="string"/>
+  <script encoded="false"><![CDATA[exports.handler = (context, inputs, callback) => {
+    console.log('Inputs were ' + JSON.stringify(inputs));
+    console.log('Printing Environment variables..')
+    var timer = process.env.TIMER
+    console.log(timer)
+
+    var uc = require('upper-case');
+    console.log(uc.upperCase("Testing module dependency"));
+
+    var hostname = inputs.hostname;
+    console.log("User provided hostname is ", hostname);
+
+    const http = require('http');
+
+    const options = {
+    hostname: hostname,
+    path: '/posts',
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    };
+
+    const getPosts = () => {
+    let data = '';
+
+    const request = http.request(options, (response) => {
+        response.setEncoding('utf8');
+        response.on('data', (chunk) => {
+        data += chunk;
+        });
+
+        response.on('end', () => {
+        console.log(data);
+        });
+    });
+
+    request.on('error', (error) => {
+        console.error(error);
+    });
+
+    request.end();
+    };
+
+    getPosts();
+    callback(undefined, {status: "done"});
+}
+]]></script>
+</dunes-script-module>

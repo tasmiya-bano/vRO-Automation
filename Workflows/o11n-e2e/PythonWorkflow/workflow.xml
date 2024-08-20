@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="12351200-d883-4404-838e-275f75098f77" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>PythonWorkflow</display-name>
+    <position y="50.0" x="20.0"/>
+    <input>
+        <param name="input_e2e_0" type="string">
+            <description>Enter string type input</description>
+        </param>
+        <param name="in_e2e_2" type="number">
+            <description>Enter int type input</description>
+        </param>
+        <param name="url" type="string"/>
+        <param name="array_input" type="Array/string"/>
+        <param name="int_input" type="Array/number"/>
+    </input>
+    <output/>
+    <attrib name="var_e2e_0" type="string">
+        <value encoded="n">Tasmiya</value>
+        <description>Testing variable</description>
+    </attrib>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="420.0"/>
+    </workflow-item>
+    <workflow-item name="item1" out-name="item0" type="task" script-module="com.vmware.e2e.o11n/PythonE2EAction" comparator="0">
+        <display-name>PythonE2EAction</display-name>
+        <script encoded="false">//Auto generated script, cannot be modified !
+actionResult = System.getModule("com.vmware.e2e.o11n").PythonE2EAction(url,array_input,int_input);
+</script>
+        <in-binding>
+            <bind name="url" type="string" export-name="url">
+                <description></description>
+            </bind>
+            <bind name="array_input" type="Array/string" export-name="array_input">
+                <description></description>
+            </bind>
+            <bind name="int_input" type="Array/number" export-name="int_input">
+                <description></description>
+            </bind>
+        </in-binding>
+        <out-binding>
+            <bind name="actionResult" type="string" export-name=""/>
+        </out-binding>
+        <description>Add a note to the workflow schema.</description>
+        <position y="60.0" x="170.0"/>
+    </workflow-item>
+</ns2:workflow>

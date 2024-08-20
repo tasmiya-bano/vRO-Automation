@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:workflow xmlns:ns2="http://vmware.com/vco/workflow" root-name="item1" object-name="workflow:name=generic" id="00969f96-afb0-44c6-9a3c-af6c009fe25d" editor-version="2.0" version="0.0.0" api-version="6.0.0" restartMode="1" resumeFromFailedMode="0">
+    <display-name>NodeJSWorkflow</display-name>
+    <position y="50.0" x="40.0"/>
+    <input>
+        <param name="url" type="string"/>
+    </input>
+    <output/>
+    <attrib name="var_0" type="string">
+        <value encoded="n"/>
+    </attrib>
+    <workflow-item name="item0" type="end" end-mode="0" comparator="0">
+        <in-binding/>
+        <out-binding/>
+        <position y="50.0" x="440.0"/>
+    </workflow-item>
+    <workflow-item name="item1" out-name="item0" type="task" script-module="com.vmware.e2e.o11n/NodeJsE2EAction" comparator="0">
+        <display-name>NodeJsE2EAction</display-name>
+        <script encoded="false">//Auto generated script, cannot be modified !
+actionResult = System.getModule("com.vmware.e2e.o11n").NodeJsE2EAction(hostname);
+</script>
+        <in-binding>
+            <bind name="hostname" type="string" export-name="url">
+                <description></description>
+            </bind>
+        </in-binding>
+        <out-binding>
+            <bind name="actionResult" type="string" export-name="var_0"/>
+        </out-binding>
+        <description>Add a note to the workflow schema.</description>
+        <position y="60.0" x="170.0"/>
+    </workflow-item>
+</ns2:workflow>

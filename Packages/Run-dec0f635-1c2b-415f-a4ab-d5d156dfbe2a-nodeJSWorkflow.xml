@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<package>
+<description><![CDATA[Export run dec0f635-1c2b-415f-a4ab-d5d156dfbe2a for workflow 'NodeJSWorkflow' at 8/20/2024, 4:24:51 PM.]]></description>
+<elm src-category='null'><![CDATA[dunes://service.dunes.ch/Workflow?id='00969f96-afb0-44c6-9a3c-af6c009fe25d'&dunesName='Workflow']]></elm>
+<elm src-category='null'><![CDATA[dunes://service.dunes.ch/Action?id='0ea9514b-ccd5-41db-97e3-f8ecb9876b17'&dunesName='Action'&name='NodeJsE2EAction'&category='com.vmware.e2e.o11n']]></elm>
+<elm src-category='null'><![CDATA[dunes://service.dunes.ch/WorkflowToken?id='dec0f635-1c2b-415f-a4ab-d5d156dfbe2a'&dunesName='WorkflowToken']]></elm>
+</package>

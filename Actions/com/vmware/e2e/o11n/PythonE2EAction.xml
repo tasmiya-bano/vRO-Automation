@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dunes-script-module name="PythonE2EAction" result-type="string" api-version="6.0.0" id="5fbff026-fb91-4634-ac5a-516f4368d824" version="0.0.0" category-name="com.vmware.e2e.o11n">
+  <environment><![CDATA[f2d8fa05-9399-4023-ab06-a4749b09a1c3]]></environment>
+  <param n="url" t="string"/>
+  <param n="array_input" t="Array/string"/>
+  <param n="int_input" t="Array/number"/>
+  <script encoded="false"><![CDATA[import requests
+import os
+import time
+
+def handler(context, inputs):
+
+    url = inputs.get("url")
+    input_int = inputs.get("int_input")
+    input_string = inputs.get("array_input")
+
+    print("Performing get on url: ", url)
+    response = requests.get(url)
+    print("API status code is: ", response.status_code)
+    print("API response is: ", response.text)
+
+    print("Testing input array now....")
+    list_array(input_int)
+    list_array(input_string)
+    outputs = {
+      "status": "done"
+    }
+
+    print("Testing Environment variable part...")
+    timer = os.getenv("SLEEP_TIME")
+    print("Sleeping for: ", timer)
+    time.sleep(int(timer))
+    print("Run Complete !")
+
+    return outputs
+
+
+def list_array(elements_list):
+    for input_el in elements_list:
+      print("%s is of type %s" %(input_el, str(type(input_el))))]]></script>
+</dunes-script-module>
